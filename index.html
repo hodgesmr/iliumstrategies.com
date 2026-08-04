@@ -3,25 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ilium Strategies</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        body, html {
-            height: 100%;
+        :root {
+            --paper: #fbf2db;
+            --ink: #0e0e0e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
             margin: 0;
+        }
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #FBF2DB;
-            font-family: 'Courier Prime', monospace;
-            color: #0E0E0E;
-            font-size: 28px;
+            padding: 48px 24px;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(14, 14, 14, 0.012) 0,
+                    rgba(14, 14, 14, 0.012) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                var(--paper);
+            color: var(--ink);
+            font-family: "Courier Prime", monospace;
+        }
+
+        main {
+            width: min(100%, 780px);
+            text-align: justify;
+        }
+
+        blockquote {
+            margin: 42px 0 0;
+            font-size: clamp(18px, 2.4vw, 27px);
+            line-height: 1.55;
+            text-align: justify;
+        }
+
+        .machine {
+            width: 190px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .machine svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .machine-line {
+            fill: none;
+            stroke: var(--ink);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .gear-large {
+            transform-origin: 76px 70px;
+            animation: rotate-clockwise 18s linear infinite;
+        }
+
+        .gear-small {
+            transform-origin: 131px 97px;
+            animation: rotate-counterclockwise 12s linear infinite;
+        }
+
+        .machine-body {
+            animation: machine-tremble 2.4s steps(2, end) infinite;
+        }
+
+        @keyframes rotate-clockwise {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-counterclockwise {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes machine-tremble {
+            0%,
+            85%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            90% {
+                transform: translate(0.5px, -0.5px);
+            }
+
+            95% {
+                transform: translate(-0.5px, 0.5px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gear-large,
+            .gear-small,
+            .machine-body {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                align-items: flex-start;
+                padding: 40px 22px;
+            }
+
+            blockquote {
+                margin-top: 34px;
+                line-height: 1.48;
+            }
+
+            .machine {
+                width: 160px;
+                height: 126px;
+            }
         }
     </style>
 </head>
+
 <body>
-    ilium strategies
+    <main>
+        <div class="machine" aria-hidden="true">
+            <svg viewBox="0 0 190 150">
+                <g class="machine-body">
+                    <path
+                        class="machine-line"
+                        d="M25 130 L25 115 L39 115 L39 130"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M144 130 L144 115 L158 115 L158 130"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M18 115
+                           L18 48
+                           Q18 39 27 39
+                           L42 39
+                           L42 26
+                           L55 26
+                           L55 39
+                           L158 39
+                           Q167 39 167 48
+                           L167 115
+                           Z"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M18 107
+                           Q46 111 67 107
+                           T112 108
+                           T167 106"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M31 39
+                           Q34 29 28 21"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M33 20
+                           Q38 14 34 8"
+                    />
+
+                    <circle
+                        class="machine-line"
+                        cx="151"
+                        cy="55"
+                        r="5"
+                    />
+
+                    <path
+                        class="machine-line"
+                        d="M151 50 L151 60 M146 55 L156 55"
+                    />
+
+                    <g class="gear-large">
+                        <path
+                            class="machine-line"
+                            d="M76 44
+                               L82 34
+                               L90 38
+                               L89 49
+                               L99 44
+                               L105 52
+                               L97 60
+                               L108 62
+                               L108 72
+                               L97 75
+                               L104 83
+                               L98 91
+                               L88 86
+                               L89 97
+                               L79 100
+                               L74 90
+                               L67 99
+                               L58 95
+                               L60 84
+                               L49 88
+                               L44 79
+                               L53 73
+                               L42 68
+                               L44 58
+                               L55 58
+                               L50 48
+                               L58 42
+                               L66 50
+                               L67 39
+                               Z"
+                        />
+
+                        <circle
+                            class="machine-line"
+                            cx="76"
+                            cy="69"
+                            r="14"
+                        />
+
+                        <circle
+                            class="machine-line"
+                            cx="76"
+                            cy="69"
+                            r="4"
+                        />
+                    </g>
+
+                    <g class="gear-small">
+                        <path
+                            class="machine-line"
+                            d="M131 78
+                               L136 72
+                               L142 77
+                               L141 84
+                               L149 82
+                               L152 89
+                               L146 94
+                               L153 99
+                               L150 106
+                               L142 104
+                               L143 112
+                               L136 116
+                               L131 109
+                               L126 116
+                               L119 112
+                               L120 104
+                               L112 106
+                               L109 99
+                               L116 94
+                               L110 89
+                               L113 82
+                               L121 84
+                               L120 77
+                               L126 72
+                               Z"
+                        />
+
+                        <circle
+                            class="machine-line"
+                            cx="131"
+                            cy="96"
+                            r="9"
+                        />
+
+                        <circle
+                            class="machine-line"
+                            cx="131"
+                            cy="96"
+                            r="3"
+                        />
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <blockquote>
+            During the war, in hundreds of Iliums over America, managers and engineers learned to get along without their men and women, who went to fight. It was the miracle that won the war—production with almost no manpower. In the patois of the north side of the river, it was the know-how that won the war. <br /><br />Democracy owed its life to know-how.
+        </blockquote>
+    </main>
 </body>
 </html>
